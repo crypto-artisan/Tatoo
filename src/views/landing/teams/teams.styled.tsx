@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TeamsWrapper = styled.div`
   position: relative;
   padding-top: 50px;
-  padding-bottom: 200px;
+  padding-bottom: 50px;
   ::before,
   ::after {
     transition: all 0.2s ease-in-out;
@@ -36,7 +36,7 @@ export const TeamsIntroSection = styled.div`
 
 export const TeamsTitles = styled.div`
   white-space: nowrap;
-  font-family: GraublauWeb;
+  font-family: GraublauWeb-bold;
   line-height: 74px;
   text-transform: capitalize;
   p {
@@ -50,7 +50,6 @@ export const TeamsTitles = styled.div`
   .teams-subtitle {
     font-size: 62px;
     color: #f4f4f4;
-    font-weight: 700;
   }
 `;
 

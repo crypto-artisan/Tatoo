@@ -1,6 +1,11 @@
 import { Container } from "components";
 import React from "react";
-import { IntroPart, RoadMapPart, TeamsPart } from "views/landing";
+import {
+  IntroPart,
+  RoadMapPart,
+  TeamsDescPart,
+  TeamsPart,
+} from "views/landing";
 import { LandingWrapper } from "./landing.styled";
 
 const LandingPage = () => {
@@ -10,6 +15,7 @@ const LandingPage = () => {
         <IntroPart />
         <RoadMapPart />
         <TeamsPart />
+        <TeamsDescPart />
       </Container>
     </LandingWrapper>
   );

@@ -5,6 +5,12 @@
 }
 
 @font-face {
+  font-family: GraublauWeb-bold;
+  src: url("../fonts/ginora-sans-cufonfonts/Ginóra\ Sans\ Bold.otf")
+    format("opentype");
+}
+
+@font-face {
   font-family: Gilroy-Regular;
   src: url("../fonts/FontsFree-Net-Gilroy3.ttf") format("opentype");
 }
