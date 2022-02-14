@@ -11,7 +11,7 @@ import { LandingWrapper } from "./landing.styled";
 
 const LandingPage = () => {
   return (
-    <LandingWrapper>
+    <LandingWrapper id="artists">
       <Container>
         <IntroPart />
         <RoadMapPart />

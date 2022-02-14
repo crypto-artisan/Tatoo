@@ -28,10 +28,11 @@ export const MenuLists = styled.div`
   }
 `;
 
-export const MenuItem = styled.div<{ active?: boolean }>`
+export const MenuItem = styled.a<{ active?: boolean }>`
   position: relative;
   color: #ffffff;
   text-transform: uppercase;
+  text-decoration: none;
   font-family: GraublauWeb;
   transition: 0.2s all;
   cursor: pointer;

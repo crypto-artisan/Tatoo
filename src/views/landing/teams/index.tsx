@@ -72,7 +72,7 @@ const TeamsPart = () => {
     };
   }, [handleScroll]);
   return (
-    <TeamsWrapper>
+    <TeamsWrapper id="team">
       <TeamsIntroSection>
         <TeamsTitles>
           <p className="teams-title">who are we?</p>

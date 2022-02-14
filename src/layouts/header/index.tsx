@@ -32,13 +32,13 @@ const Header = () => {
       <Container>
         <HeaderContainer id="header">
           <MenuLists>
-            <MenuItem>artists</MenuItem>
-            <MenuItem>roadmap</MenuItem>
+            <MenuItem href="#artists">artists</MenuItem>
+            <MenuItem href="#roadmap">roadmap</MenuItem>
           </MenuLists>
           <img id="logoImg" src={logoSVG} alt="logoSVG" />
           <MenuLists>
-            <MenuItem>team</MenuItem>
-            <MenuItem>
+            <MenuItem href="#team">team</MenuItem>
+            <MenuItem href="#menu">
               menu <img src={menuSVG} alt="menuSVG" />
             </MenuItem>
           </MenuLists>

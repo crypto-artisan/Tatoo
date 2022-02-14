@@ -59,7 +59,7 @@ const RoadMapPart = () => {
   }, [handleScroll]);
 
   return (
-    <RoadmapWrapper>
+    <RoadmapWrapper id="roadmap">
       <RoadMapTitleSection>
         <h2>Roadmap</h2>
         <p>

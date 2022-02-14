@@ -23,7 +23,7 @@ const FormInput = ({ label, value, onChange, name }: any) => {
 
 const CommunityPart = () => {
   return (
-    <CommunityWrapper>
+    <CommunityWrapper id="menu">
       <CommunitySection>
         <JoinDescSection>
           <h1>Join the community</h1>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const IntroWrapper = styled.div`
   img {
     width: 93%;
-    box-: 0px 0px 90px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 90px 20px rgba(0, 0, 0, 0.15);
   }
   text-align: center;
 `;
