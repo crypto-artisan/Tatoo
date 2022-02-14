@@ -7,6 +7,10 @@ import no5 from "assets/image/roadmap/no5.svg";
 
 export const RoadmapWrapper = styled.div`
   padding: 170px 0;
+  transition: all 0.2s;
+  @media screen and (max-width: 768px) {
+    padding: 70px 0;
+  }
 `;
 
 export const RoadMapTitleSection = styled.div`
@@ -157,7 +161,7 @@ export const RoadMapCardGroup = styled.div`
       height: 30px;
       transform: rotate(45deg);
       top: 0;
-      left: -13px;
+      left: 7px;
       background-color: #bc3a08;
     }
   }
@@ -174,7 +178,7 @@ export const RoadMapCardGroup = styled.div`
       height: 100%;
       background-color: #bc3a0880;
       top: 0;
-      left: 0;
+      left: 20px;
     }
   }
 `;
@@ -191,7 +195,7 @@ export const RoadMapCard = styled.div`
     margin-bottom: 47px;
     position: relative;
     font-family: GraublauWeb;
-    font-size: 48px;
+    font-size: clamp(30px, 9vw, 48px);
     line-height: 55px;
     text-transform: capitalize;
     color: #f4f4f4;

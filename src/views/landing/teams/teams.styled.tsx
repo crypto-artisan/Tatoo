@@ -49,11 +49,11 @@ export const TeamsTitles = styled.div`
   }
   .teams-title {
     color: #f4f4f4;
-    font-size: 58px;
+    font-size: clamp(40px, 9vw, 58px);
     -webkit-text-stroke: 1px #bc3a08;
   }
   .teams-subtitle {
-    font-size: 62px;
+    font-size: clamp(40px, 9vw, 62px);
     color: #f4f4f4;
   }
 `;
@@ -77,6 +77,12 @@ export const MemberSection = styled.div`
   grid-column-gap: 30px;
   padding: 0 43px;
   grid-template-columns: 1fr 1fr 1fr;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
   margin-top: 140px;
   ::before,
   ::after {
@@ -107,6 +113,10 @@ export const MemberSection = styled.div`
 export const MemberCardWrapper = styled.div<{ dir?: number }>`
   ${({ dir }) => (dir === 1 ? "padding-top: 100px;" : "padding-bottom: 100px;")}
   transition: 0.7s all;
+  @media screen and (max-width: 425px) {
+    padding: 0 !important;
+    padding-bottom: 50px !important;
+  }
 `;
 
 export const MemberImgWrapper = styled.div<{ align?: string }>`

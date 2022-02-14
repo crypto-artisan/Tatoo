@@ -28,7 +28,7 @@ export const JoinDescSection = styled.div`
   h1 {
     color: #f4f4f4;
     text-transform: capitalize;
-    font-size: 62px;
+    font-size: clamp(40px, 5vw, 62px);
     line-height: 50px;
     font-family: GraublauWeb;
     margin-bottom: 40px;
@@ -62,6 +62,18 @@ export const LinkGroup = styled.div`
     direction: ltr;
     margin-bottom: 20px;
   }
+  @media screen and (max-width: 450px) {
+    display: flex;
+    flex-direction: column;
+    & > *:not(:first-child) {
+      margin-left: 0;
+      margin: 20px auto 0;
+    }
+    a {
+      width: fit-content;
+      margin: auto;
+    }
+  }
 `;
 
 export const LinkItem = styled.a`
@@ -83,13 +95,16 @@ export const FormInputWrapper = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid #565656;
+  @media screen and (max-width: 450px) {
+    padding: 0 15px;
+  }
   span {
     position: relative;
     padding: 20px 0;
     color: #b8b8b8;
     text-transform: capitalize;
     font-family: GraublauWeb;
-    font-size: 22px;
+    font-size: clamp(16px, 5vw, 22px);
     min-width: 80px;
     width: max-content;
     white-space: nowrap;
@@ -102,16 +117,25 @@ export const FormInputWrapper = styled.div`
       position: absolute;
       background: linear-gradient(270.03deg, #bc3a08 0.05%, #941a0b 100%);
     }
+    @media screen and (max-width: 450px) {
+      padding: 10px 0;
+      ::after {
+        width: 50px;
+      }
+    }
   }
   input {
     background-color: transparent;
     border: none;
     outline: none;
-    font-size: 20px;
+    font-size: clamp(16px, 5vw, 20px);
     font-family: GraublauWeb;
     color: #b8b8b8;
     margin-left: 20px;
     width: -webkit-fill-available;
+    @media screen and (max-width: 450px) {
+      margin-left: 0;
+    }
   }
 `;
 

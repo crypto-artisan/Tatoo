@@ -33,6 +33,7 @@ const MemberCard = (props: any) => {
 
 const TeamsPart = () => {
   const [y, setY] = useState(0);
+  const [mobile, setMobile] = useState(false);
 
   const handleScroll = useCallback(
     (e: any) => {
@@ -66,6 +67,11 @@ const TeamsPart = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", () =>
+      setMobile(window.innerWidth >= 768 ? false : true)
+    );
+    setMobile(window.innerWidth >= 768 ? false : true);
+
     setY(window.scrollY);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -105,13 +111,13 @@ const TeamsPart = () => {
         <MemberCard
           img={mem3}
           id="mem3"
-          dir={1}
+          dir={mobile ? 1 : 0}
           name="Daris Pir"
           role="Tattoo Artist"
         />
         <MemberCard
           img={mem4}
-          dir={1}
+          dir={mobile ? 0 : 1}
           id="mem4"
           align="left"
           name="yomico"
@@ -120,14 +126,14 @@ const TeamsPart = () => {
         <MemberCard
           img={mem5}
           id="mem5"
-          dir={0}
+          dir={mobile ? 1 : 0}
           name="Stefano"
           role="co-leader"
         />
         <MemberCard
           img={mem6}
           id="mem6"
-          dir={1}
+          dir={mobile ? 0 : 1}
           name="halo"
           role="Tattoo Artist"
         />

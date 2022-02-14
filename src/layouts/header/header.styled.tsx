@@ -26,6 +26,11 @@ export const HeaderContainer = styled.div`
     width: calc(100% - 120px);
     margin: 0 !important;
   }
+  @media screen and (max-width: 450px) {
+    padding: 10px 20px;
+    width: calc(100% - 40px);
+    margin: 0 !important;
+  }
 `;
 
 export const MenuLists = styled.div`

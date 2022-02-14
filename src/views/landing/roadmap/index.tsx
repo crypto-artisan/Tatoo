@@ -17,76 +17,17 @@ import roadmap4 from "assets/image/roadmap/roadmap4.png";
 import roadmap5 from "assets/image/roadmap/roadmap5.png";
 
 const RoadMapPart = () => {
-  const [y, setY] = useState(0);
   const [mobile, setMobile] = useState(false);
 
-  const handleScroll = useCallback(
-    (e: any) => {
-      const currentTarget = e.currentTarget;
-      const rmXY: any = [];
-      const rmMXY: any = [];
-      for (let i = 1; i <= 5; i++) {
-        if (!mobile) {
-          rmXY.push(
-            document.getElementById("rmd" + i)?.getBoundingClientRect()
-          );
-        } else {
-          rmMXY.push(
-            document.getElementById("rmd-m" + i)?.getBoundingClientRect()
-          );
-        }
-      }
-
-      if (y > currentTarget.scrollY) {
-        for (let j = 0; j < 5; j++) {
-          if (!mobile) {
-            if (rmXY[j].top > window.innerHeight) {
-              const activeDiv: any = document.getElementById("rmd" + (j + 1));
-              activeDiv.style.transform = "translateY(100px)";
-              activeDiv.style.opacity = "0";
-            }
-          } else {
-            if (rmMXY[j].top > window.innerHeight) {
-              const activeDiv: any = document.getElementById("rmd-m" + (j + 1));
-              activeDiv.style.transform = "translateX(100px)";
-              activeDiv.style.opacity = "0";
-            }
-          }
-        }
-      } else if (y < currentTarget.scrollY) {
-        for (let j = 0; j < 5; j++) {
-          if (!mobile) {
-            if (rmXY[j].top >= 0 && rmXY[j].top <= window.innerHeight) {
-              const activeDiv: any = document.getElementById("rmd" + (j + 1));
-              activeDiv.style.transform = "translateY(0)";
-              activeDiv.style.opacity = "1";
-            }
-          } else {
-            if (rmMXY[j].top >= 0 && rmMXY[j].top <= window.innerHeight) {
-              const activeDiv: any = document.getElementById("rmd-m" + (j + 1));
-              activeDiv.style.transform = "translateX(0)";
-              activeDiv.style.opacity = "1";
-            }
-          }
-        }
-      }
-      setY(currentTarget.scrollY);
-    },
-    [y]
-  );
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", () =>
       setMobile(window.innerWidth >= 1024 ? false : true)
     );
-    setY(window.scrollY);
     setMobile(window.innerWidth >= 1024 ? false : true);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", () => {});
     };
-  }, [handleScroll]);
+  }, []);
 
   return (
     <RoadmapWrapper id="roadmap">

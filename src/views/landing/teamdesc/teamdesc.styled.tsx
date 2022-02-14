@@ -30,7 +30,7 @@ export const TitleSection = styled.div`
   .teamdesc-title {
     font-family: GraublauWeb-bold;
     font-weight: 500;
-    font-size: 62px;
+    font-size: clamp(40px, 9vw, 62px);
     line-height: 62px;
     text-transform: capitalize;
     margin-bottom: 32px;
@@ -55,6 +55,9 @@ export const DescContent = styled.div`
   img {
     max-width: 360px;
     width: 100%;
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
@@ -121,7 +124,7 @@ export const LinkedInItem = styled.a`
 export const MorganSection = styled.div`
   h3 {
     font-family: GraublauWeb;
-    font-size: 44px;
+    font-size: clamp(30px, 9vw, 44px);
     line-height: 44px;
     color: #f4f4f4;
     text-transform: capitalize;
