@@ -21,7 +21,6 @@ const RoadMapPart = () => {
 
   const handleScroll = useCallback(
     (e: any) => {
-      console.log(y);
       const currentTarget = e.currentTarget;
       const rmXY: any = [];
       for (let i = 1; i <= 5; i++) {

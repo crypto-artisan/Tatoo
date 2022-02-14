@@ -30,7 +30,7 @@ export const MenuLists = styled.div`
 
 export const MenuItem = styled.a<{ active?: boolean }>`
   position: relative;
-  color: #ffffff;
+  color: ${({ active }) => (active ? "#bc3a08" : "#ffffff")};
   text-transform: uppercase;
   text-decoration: none;
   font-family: GraublauWeb;
