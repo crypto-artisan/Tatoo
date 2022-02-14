@@ -19,7 +19,6 @@ const Header = () => {
   }, []);
 
   const handleScroll = () => {
-    console.log(document.documentElement.scrollTop);
     const header: any = document.getElementById("header");
     if (document.documentElement.scrollTop > 30) {
       header.style.marginTop = 0;

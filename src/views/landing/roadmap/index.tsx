@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   RoadMapCard,
   RoadMapCardGroup,
@@ -17,6 +17,47 @@ import roadmap4 from "assets/image/roadmap/roadmap4.png";
 import roadmap5 from "assets/image/roadmap/roadmap5.png";
 
 const RoadMapPart = () => {
+  const [y, setY] = useState(0);
+
+  const handleScroll = useCallback(
+    (e: any) => {
+      const currentTarget = e.currentTarget;
+      const rmXY: any = [];
+      for (let i = 1; i <= 5; i++) {
+        rmXY.push(document.getElementById("rmd" + i)?.getBoundingClientRect());
+      }
+
+      if (y > currentTarget.scrollY) {
+        for (let j = 0; j < 5; j++) {
+          if (rmXY[j].top > window.innerHeight) {
+            const activeDiv: any = document.getElementById("rmd" + (j + 1));
+            activeDiv.style.transform = "translateY(100px)";
+            activeDiv.style.opacity = "0";
+          }
+        }
+      } else if (y < currentTarget.scrollY) {
+        console.log(rmXY[0]?.top);
+        for (let j = 0; j < 5; j++) {
+          if (rmXY[j].top >= 0 && rmXY[j].top <= window.innerHeight) {
+            const activeDiv: any = document.getElementById("rmd" + (j + 1));
+            activeDiv.style.transform = "translateY(0)";
+            activeDiv.style.opacity = "1";
+          }
+        }
+      }
+      setY(currentTarget.scrollY);
+    },
+    [y]
+  );
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    setY(window.scrollY);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
   return (
     <RoadmapWrapper>
       <RoadMapTitleSection>
@@ -48,7 +89,7 @@ const RoadMapPart = () => {
         </RoadMapLine>
         <RoadMapCardWrapper>
           <RoadMapCardGroup>
-            <RoadMapCard>
+            <RoadMapCard id="rmd1">
               <h2>Launch Roadmap</h2>
               <p>
                 {
@@ -60,7 +101,7 @@ const RoadMapPart = () => {
           </RoadMapCardGroup>
           <RoadMapCardGroup>
             <div />
-            <RoadMapCard>
+            <RoadMapCard id="rmd2">
               <h2>The Legend</h2>
               <p>
                 {
@@ -70,7 +111,7 @@ const RoadMapPart = () => {
             </RoadMapCard>
           </RoadMapCardGroup>
           <RoadMapCardGroup>
-            <RoadMapCard>
+            <RoadMapCard id="rmd3">
               <h2>Art Holds Keys</h2>
               <p>
                 {
@@ -82,7 +123,7 @@ const RoadMapPart = () => {
           </RoadMapCardGroup>
           <RoadMapCardGroup>
             <div />
-            <RoadMapCard>
+            <RoadMapCard id="rmd4">
               <h2>Art with Utility</h2>
               <p>
                 {
@@ -92,7 +133,7 @@ const RoadMapPart = () => {
             </RoadMapCard>
           </RoadMapCardGroup>
           <RoadMapCardGroup>
-            <RoadMapCard>
+            <RoadMapCard id="rmd5">
               <h2>Team expansion</h2>
               <p>
                 {
