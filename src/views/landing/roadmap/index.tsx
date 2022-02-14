@@ -21,6 +21,7 @@ const RoadMapPart = () => {
 
   const handleScroll = useCallback(
     (e: any) => {
+      console.log(y);
       const currentTarget = e.currentTarget;
       const rmXY: any = [];
       for (let i = 1; i <= 5; i++) {
@@ -36,7 +37,6 @@ const RoadMapPart = () => {
           }
         }
       } else if (y < currentTarget.scrollY) {
-        console.log(rmXY[0]?.top);
         for (let j = 0; j < 5; j++) {
           if (rmXY[j].top >= 0 && rmXY[j].top <= window.innerHeight) {
             const activeDiv: any = document.getElementById("rmd" + (j + 1));

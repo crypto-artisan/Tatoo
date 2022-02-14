@@ -98,6 +98,7 @@ export const MemberSection = styled.div`
 
 export const MemberCardWrapper = styled.div<{ dir?: number }>`
   ${({ dir }) => (dir === 1 ? "padding-top: 100px;" : "padding-bottom: 100px;")}
+  transition: 0.7s all;
 `;
 
 export const MemberImgWrapper = styled.div<{ align?: string }>`

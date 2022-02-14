@@ -150,8 +150,6 @@ export const RoadMapCardGroup = styled.div`
 export const RoadMapCard = styled.div`
   width: 31%;
   transition: 0.7s all;
-  transform: translateY(100px);
-  opacity: 0;
   h2,
   p {
     margin: 0;

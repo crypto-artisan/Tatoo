@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   MemberCardWrapper,
   MemberImgWrapper,
@@ -19,7 +19,7 @@ import mem6 from "assets/image/team/mem6.png";
 
 const MemberCard = (props: any) => {
   return (
-    <MemberCardWrapper dir={props.dir}>
+    <MemberCardWrapper id={props.id} dir={props.dir}>
       <MemberImgWrapper align={props.align}>
         <img src={props.img} alt="mem1" />
       </MemberImgWrapper>
@@ -32,6 +32,45 @@ const MemberCard = (props: any) => {
 };
 
 const TeamsPart = () => {
+  const [y, setY] = useState(0);
+
+  const handleScroll = useCallback(
+    (e: any) => {
+      const currentTarget = e.currentTarget;
+      const rmXY: any = [];
+      for (let i = 1; i <= 6; i++) {
+        rmXY.push(document.getElementById("mem" + i)?.getBoundingClientRect());
+      }
+
+      if (y > currentTarget.scrollY) {
+        for (let j = 0; j < 6; j++) {
+          if (rmXY[j].top > window.innerHeight) {
+            const activeDiv: any = document.getElementById("mem" + (j + 1));
+            activeDiv.style.transform = "translateY(100px)";
+            activeDiv.style.opacity = "0";
+          }
+        }
+      } else if (y < currentTarget.scrollY) {
+        for (let j = 0; j < 6; j++) {
+          if (rmXY[j].top <= window.innerHeight) {
+            const activeDiv: any = document.getElementById("mem" + (j + 1));
+            activeDiv.style.transform = "translateY(0)";
+            activeDiv.style.opacity = "1";
+          }
+        }
+      }
+      setY(currentTarget.scrollY);
+    },
+    [y]
+  );
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    setY(window.scrollY);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
   return (
     <TeamsWrapper>
       <TeamsIntroSection>
@@ -48,24 +87,50 @@ const TeamsPart = () => {
         </TeamsDesc>
       </TeamsIntroSection>
       <MemberSection>
-        <MemberCard img={mem1} dir={1} name="Jesse Smith" role="co-leader" />
+        <MemberCard
+          img={mem1}
+          id="mem1"
+          dir={1}
+          name="Jesse Smith"
+          role="co-leader"
+        />
         <MemberCard
           img={mem2}
           dir={0}
+          id="mem2"
           name="Megan Jean Morris"
           align="right"
           role="co-leader"
         />
-        <MemberCard img={mem3} dir={1} name="Daris Pir" role="Tattoo Artist" />
+        <MemberCard
+          img={mem3}
+          id="mem3"
+          dir={1}
+          name="Daris Pir"
+          role="Tattoo Artist"
+        />
         <MemberCard
           img={mem4}
           dir={1}
+          id="mem4"
           align="left"
           name="yomico"
           role="co-leader"
         />
-        <MemberCard img={mem5} dir={0} name="Stefano" role="co-leader" />
-        <MemberCard img={mem6} dir={1} name="halo" role="Tattoo Artist" />
+        <MemberCard
+          img={mem5}
+          id="mem5"
+          dir={0}
+          name="Stefano"
+          role="co-leader"
+        />
+        <MemberCard
+          img={mem6}
+          id="mem6"
+          dir={1}
+          name="halo"
+          role="Tattoo Artist"
+        />
       </MemberSection>
     </TeamsWrapper>
   );
