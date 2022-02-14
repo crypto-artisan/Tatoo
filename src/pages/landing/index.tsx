@@ -1,6 +1,7 @@
 import { Container } from "components";
 import React from "react";
 import {
+  CommunityPart,
   IntroPart,
   RoadMapPart,
   TeamsDescPart,
@@ -16,6 +17,7 @@ const LandingPage = () => {
         <RoadMapPart />
         <TeamsPart />
         <TeamsDescPart />
+        <CommunityPart />
       </Container>
     </LandingWrapper>
   );
