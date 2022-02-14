@@ -32,6 +32,10 @@ export const TeamsWrapper = styled.div`
 
 export const TeamsIntroSection = styled.div`
   display: flex;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
 export const TeamsTitles = styled.div`
@@ -39,6 +43,7 @@ export const TeamsTitles = styled.div`
   font-family: GraublauWeb-bold;
   line-height: 74px;
   text-transform: capitalize;
+
   p {
     margin: 0;
   }
@@ -61,6 +66,9 @@ export const TeamsDesc = styled.p`
   color: #b8b8b8;
   padding-top: 10px;
   padding-left: 42px;
+  @media screen and (max-width: 1024px) {
+    padding-left: 0;
+  }
 `;
 
 export const MemberSection = styled.div`
@@ -102,10 +110,18 @@ export const MemberCardWrapper = styled.div<{ dir?: number }>`
 `;
 
 export const MemberImgWrapper = styled.div<{ align?: string }>`
+  width: 100%;
+  position: relative;
+  padding-top: 120%;
+  contain: content;
   background-color: #941a0b;
   text-align: ${({ align }) => (align ? align : "center")};
   img {
+    top: 0;
+    left: 0;
+    position: absolute;
     vertical-align: bottom;
+    width: 100%;
   }
 `;
 

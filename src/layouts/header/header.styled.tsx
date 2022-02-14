@@ -10,14 +10,21 @@ export const HeaderWrapper = styled.div`
 
 export const HeaderContainer = styled.div`
   transition: 0.2s all;
+  margin: auto;
   margin-top: 30px;
   background: #252326;
   padding: 20px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1160px;
+  width: calc(90% - 120px);
   #logoImg {
     cursor: pointer;
+  }
+  @media screen and (max-width: 1024px) {
+    width: calc(100% - 120px);
+    margin: 0 !important;
   }
 `;
 

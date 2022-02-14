@@ -18,7 +18,7 @@ export const RoadMapTitleSection = styled.div`
   h2 {
     font-family: GraublauWeb-bold;
     color: #f4f4f4;
-    font-size: 62px;
+    font-size: clamp(40px, 9vw, 62px);
     text-align: center;
     line-height: 62px;
     -webkit-text-stroke: 1px #bc3a08;
@@ -145,6 +145,38 @@ export const RoadMapCardWrapper = styled.div`
 export const RoadMapCardGroup = styled.div`
   display: flex;
   justify-content: space-between;
+  position: relative;
+  .mobile-rm {
+    position: relative;
+    width: calc(100% - 50px);
+    padding-left: 50px;
+    ::before {
+      position: absolute;
+      content: "";
+      width: 30px;
+      height: 30px;
+      transform: rotate(45deg);
+      top: 0;
+      left: -13px;
+      background-color: #bc3a08;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    margin-top: 100px;
+    flex-direction: column;
+    & > *:not(:first-child) {
+      margin-top: 50px;
+    }
+    ::after {
+      position: absolute;
+      content: "";
+      width: 3px;
+      height: 100%;
+      background-color: #bc3a0880;
+      top: 0;
+      left: 0;
+    }
+  }
 `;
 
 export const RoadMapCard = styled.div`
@@ -155,6 +187,7 @@ export const RoadMapCard = styled.div`
     margin: 0;
   }
   h2 {
+    display: inline-block;
     margin-bottom: 47px;
     position: relative;
     font-family: GraublauWeb;

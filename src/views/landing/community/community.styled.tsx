@@ -10,10 +10,17 @@ export const CommunityWrapper = styled.div`
 export const CommunitySection = styled.div`
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 export const JoinDescSection = styled.div`
   width: 50%;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    text-align: center;
+  }
   h1,
   p {
     margin: 0;
@@ -39,11 +46,21 @@ export const GetInTouchForm = styled.div`
   & > *:not(:first-child) {
     margin-top: 20px;
   }
+  @media screen and (max-width: 1024px) {
+    margin-top: 50px;
+    width: 100%;
+  }
 `;
 
 export const LinkGroup = styled.div`
+  width: -webkit-fill-available;
   & > *:not(:first-child) {
-    margin-left: 30px;
+    margin-left: 6%;
+  }
+  @media screen and (max-width: 1024px) {
+    text-align: center;
+    direction: ltr;
+    margin-bottom: 20px;
   }
 `;
 
@@ -52,7 +69,7 @@ export const LinkItem = styled.a`
   font-family: GraublauWeb;
   transition: 0.2s all;
   color: #b8b8b8;
-  font-size: 16px;
+  font-size: clamp(12px, 1.3vw, 16px);
   line-height: 18px;
   letter-spacing: 0.3em;
   cursor: pointer;

@@ -52,7 +52,7 @@ const CommunityPart = () => {
           <LinkItem>facebook</LinkItem>
           <LinkItem>twitter</LinkItem>
         </LinkGroup>
-        <LinkGroup>
+        <LinkGroup dir="rtl">
           <LinkItem>{"privacy & policy"}</LinkItem>
           <LinkItem>{"cookies policy"}</LinkItem>
         </LinkGroup>

@@ -11,7 +11,7 @@ export const IntroWrapper = styled.div`
 export const IntroTitle = styled.div`
   text-align: center;
   font-family: GraublauWeb;
-  font-size: clamp(50px, 5vw, 82px);
+  font-size: clamp(50px, 9vw, 82px);
   font-weight: bold;
   padding: 80px 0 50px 0;
   text-transform: capitalize;

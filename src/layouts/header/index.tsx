@@ -11,11 +11,17 @@ import logoSVG from "assets/image/common/header-logo.svg";
 import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [mobile, setMobile] = useState(false);
   const [active, setActive] = useState(1);
   useEffect(() => {
+    window.addEventListener("resize", () =>
+      setMobile(window.innerWidth >= 1024 ? false : true)
+    );
+    setMobile(window.innerWidth >= 1024 ? false : true);
     window.addEventListener("scroll", handleScroll);
     return () => {
-      return window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", () => {});
     };
   }, []);
 
@@ -55,8 +61,8 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
-      <Container>
-        <HeaderContainer id="header">
+      <HeaderContainer id="header">
+        {!mobile && (
           <MenuLists>
             <MenuItem href="#artists" active={active === 1}>
               artists
@@ -65,17 +71,26 @@ const Header = () => {
               roadmap
             </MenuItem>
           </MenuLists>
+        )}
+        <a href="#artists">
           <img id="logoImg" src={logoSVG} alt="logoSVG" />
+        </a>
+        {!mobile && (
           <MenuLists>
             <MenuItem href="#team" active={active === 3}>
               team
             </MenuItem>
             <MenuItem href="#menu" active={active === 4}>
-              menu <img src={menuSVG} alt="menuSVG" />
+              community
             </MenuItem>
           </MenuLists>
-        </HeaderContainer>
-      </Container>
+        )}
+        {mobile && (
+          <MenuItem href="#menu" active={active === 4}>
+            menu <img src={menuSVG} alt="menuSVG" />
+          </MenuItem>
+        )}
+      </HeaderContainer>
     </HeaderWrapper>
   );
 };

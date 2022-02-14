@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 const ContainerWrapper = styled.div`
   max-width: 1160px;
-  width: 85%;
+  width: 90%;
   margin: auto;
   @media screen and (max-width: 425px) {
-    width: 90%;
+    width: 95%;
   }
 `;
 
