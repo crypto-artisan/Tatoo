@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { FooterWrapper } from "./footer.styled";
 
 const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <FooterWrapper>
+      all rights reserved by <span>THE TAttoo Shop</span>
+    </FooterWrapper>
+  );
+};
 
-export default Footer
+export default Footer;
