@@ -4,7 +4,12 @@ import {
   HeaderWrapper,
   MenuItem,
   MenuLists,
+  SideBarItem,
+  SidebarOverlay,
+  SideBarWrapper,
 } from "./header.styled";
+
+import { IoClose } from "react-icons/io5";
 
 import menuSVG from "assets/image/common/menu.svg";
 import logoSVG from "assets/image/common/header-logo.svg";
@@ -13,6 +18,8 @@ import { useEffect, useState } from "react";
 const Header = () => {
   const [mobile, setMobile] = useState(false);
   const [active, setActive] = useState(1);
+  const [menuShow, setMenuShow] = useState(false);
+
   useEffect(() => {
     window.addEventListener("resize", () =>
       setMobile(window.innerWidth >= 1024 ? false : true)
@@ -86,11 +93,50 @@ const Header = () => {
           </MenuLists>
         )}
         {mobile && (
-          <MenuItem href="#menu" active={active === 4}>
+          <MenuItem onClick={() => setMenuShow(true)}>
             menu <img src={menuSVG} alt="menuSVG" />
           </MenuItem>
         )}
       </HeaderContainer>
+      {mobile && (
+        <SideBarWrapper show={menuShow}>
+          <div className="logo-wrapper">
+            <IoClose onClick={() => setMenuShow(false)} />
+            <img id="logoImg" src={logoSVG} alt="logoSVG" />
+          </div>
+          <SideBarItem
+            active={active === 1}
+            onClick={() => setMenuShow(false)}
+            href="#artists"
+          >
+            artists
+          </SideBarItem>
+          <SideBarItem
+            active={active === 2}
+            onClick={() => setMenuShow(false)}
+            href="#roadmap"
+          >
+            roadmap
+          </SideBarItem>
+          <SideBarItem
+            active={active === 3}
+            onClick={() => setMenuShow(false)}
+            href="#team"
+          >
+            team
+          </SideBarItem>
+          <SideBarItem
+            active={active === 4}
+            onClick={() => setMenuShow(false)}
+            href="#menu"
+          >
+            community
+          </SideBarItem>
+        </SideBarWrapper>
+      )}
+      {mobile && (
+        <SidebarOverlay onClick={() => setMenuShow(false)} show={menuShow} />
+      )}
     </HeaderWrapper>
   );
 };
