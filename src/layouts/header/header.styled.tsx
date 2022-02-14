@@ -4,10 +4,12 @@ export const HeaderWrapper = styled.div`
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 99999;
   left: 0;
 `;
 
 export const HeaderContainer = styled.div`
+  transition: 0.2s all;
   margin-top: 30px;
   background: #252326;
   padding: 20px 60px;

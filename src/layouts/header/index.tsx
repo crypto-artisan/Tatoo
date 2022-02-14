@@ -8,12 +8,30 @@ import {
 
 import menuSVG from "assets/image/common/menu.svg";
 import logoSVG from "assets/image/common/header-logo.svg";
+import { useEffect } from "react";
 
 const Header = () => {
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      return window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    console.log(document.documentElement.scrollTop);
+    const header: any = document.getElementById("header");
+    if (document.documentElement.scrollTop > 30) {
+      header.style.marginTop = 0;
+    } else {
+      header.style.marginTop = "30px";
+    }
+  };
+
   return (
     <HeaderWrapper>
       <Container>
-        <HeaderContainer>
+        <HeaderContainer id="header">
           <MenuLists>
             <MenuItem>artists</MenuItem>
             <MenuItem>roadmap</MenuItem>
