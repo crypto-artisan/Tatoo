@@ -111,7 +111,7 @@ const TeamsPart = () => {
         <MemberCard
           img={mem3}
           id="mem3"
-          dir={mobile ? 1 : 0}
+          dir={1}
           name="Daris Pir"
           role="Tattoo Artist"
         />
