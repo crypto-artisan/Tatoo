@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 export const MyMark: React.FC = () => {
   return (
     <Wrapper>
-      <img src="/moses.png" alt="my_mark" />
+      {/* <img src="/moses.png" alt="my_mark" /> */}
     </Wrapper>
   );
 };
